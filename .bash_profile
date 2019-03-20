@@ -46,3 +46,14 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+
+# include the application specific rc files
+if [ -d ~/.bashrc.d ] ; then
+	for file in ~/.bashrc.d/* ; do
+		[ -r "$file" ] && [ -f "$file" ] && source "$file";
+	done;
+	unset file;
+fi;

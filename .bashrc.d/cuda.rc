@@ -1,0 +1,6 @@
+# loading cuda settings
+
+if [ -d /usr/local/cuda ] ; then
+  export CUDA_HOME=/usr/local/cuda
+  export DYLD_LIBRARY_PATH=$CUDA_HOME/lib:$DYLD_LIBRARY_PATH
+fi

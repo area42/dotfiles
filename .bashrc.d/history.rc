@@ -1,0 +1,7 @@
+# history settings
+HISTSIZE=5000
+HISTFILESIZE=100000
+HISTCONTROL=ignoreboth
+HISTTIMEFORMAT="%d/%m/%y %T "
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
